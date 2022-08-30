@@ -27,6 +27,6 @@ fun CanvasScreen() {
             fontWeight = FontWeight.SemiBold,
             fontSize = 22.sp
         )
-        Selector(modifier = Modifier.fillMaxWidth(.6f))
+        Selector(modifier = Modifier.fillMaxWidth(.7f))
     }
 }
