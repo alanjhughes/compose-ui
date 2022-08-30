@@ -9,7 +9,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.alanhughes.composeui.ui.components.canvas.Selector
+import com.alanhughes.composeui.ui.components.canvas.Toggle
 
 @Composable
 fun CanvasScreen() {
@@ -22,11 +22,11 @@ fun CanvasScreen() {
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(top = 10.dp),
-            text = "Canvas",
+            text = "Toggle",
             textAlign = TextAlign.Center,
             fontWeight = FontWeight.SemiBold,
             fontSize = 22.sp
         )
-        Selector(modifier = Modifier.fillMaxWidth(.7f))
+        Toggle(modifier = Modifier.fillMaxWidth(.7f))
     }
 }
