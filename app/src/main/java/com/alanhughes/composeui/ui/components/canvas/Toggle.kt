@@ -8,6 +8,8 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material.ButtonDefaults
+import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
 import androidx.compose.material.TextButton
 import androidx.compose.runtime.*
@@ -22,6 +24,7 @@ import androidx.compose.ui.unit.sp
 import com.alanhughes.composeui.ui.theme.ComposeUITheme
 import com.alanhughes.composeui.ui.theme.LightGray
 import com.alanhughes.composeui.ui.theme.MediumGray
+import com.alanhughes.composeui.ui.theme.Purple700
 
 enum class ToggleState(val title: String) {
     ONE("One"),
@@ -92,7 +95,7 @@ fun Highlight(modifier: Modifier = Modifier, toggleState: ToggleState) =
                 .width(maxWidth / 2)
                 .fillMaxHeight()
                 .offset(offset.x.dp, offset.y.dp)
-                .background(Color.Blue, shape = RoundedCornerShape(10.dp))
+                .background(MaterialTheme.colors.primaryVariant, shape = RoundedCornerShape(10.dp))
         )
     }
 
@@ -116,13 +119,11 @@ fun SelectionTab(
             fontWeight = if (currentState == targetState) FontWeight.Bold else FontWeight.Normal
         )
     }
-
-
 }
 
-@Preview(showBackground = true)
+@Preview(showBackground = true, name = "Toggle")
 @Composable
-fun Selector_Preview() {
+fun Toggle_Preview() {
     ComposeUITheme {
         Selector()
     }
