@@ -18,14 +18,14 @@ import com.bumble.appyx.core.node.Node
 class CanvasNode(buildContext: BuildContext) : Node(buildContext) {
     @Composable
     override fun View(modifier: Modifier) {
-        CanvasScreen(modifier)
+        CanvasScreen(modifier = modifier)
     }
 }
 
 @Composable
 fun CanvasScreen(modifier: Modifier = Modifier) {
     Column(
-        modifier = modifier.fillMaxSize(),
+        modifier = modifier,
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.spacedBy(20.dp)
     ) {
@@ -46,7 +46,7 @@ fun CanvasScreen(modifier: Modifier = Modifier) {
 @Composable
 fun CanvasScreen_Preview() {
     ComposeUITheme {
-        CanvasScreen()
+        CanvasScreen(modifier = Modifier.fillMaxSize())
     }
 }
 

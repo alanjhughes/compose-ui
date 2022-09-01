@@ -10,7 +10,7 @@ import com.bumble.appyx.core.modality.BuildContext
 import com.bumble.appyx.core.node.Node
 import com.bumble.appyx.core.node.ParentNode
 import com.bumble.appyx.navmodel.backstack.BackStack
-import com.bumble.appyx.navmodel.backstack.transitionhandler.rememberBackstackSlider
+import com.bumble.appyx.navmodel.backstack.transitionhandler.rememberBackstackFader
 import kotlinx.parcelize.Parcelize
 
 class RootNode(
@@ -39,7 +39,7 @@ class RootNode(
     override fun View(modifier: Modifier) {
         Children(
             navModel = backStack,
-            transitionHandler = rememberBackstackSlider()
+            transitionHandler = rememberBackstackFader()
         )
     }
 }
