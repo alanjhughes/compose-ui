@@ -63,11 +63,10 @@ dependencies {
     //lifecycle
     implementation(Deps.lifecycleRuntime)
     //nav
-    implementation(Deps.composeNav)
     implementation(Deps.appyxNav)
-
     implementation(Deps.meterial)
 
+    // testing
     testImplementation(Deps.junit)
     androidTestImplementation(Deps.androidXTestExt)
     androidTestImplementation(Deps.espresso)
