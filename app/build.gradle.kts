@@ -1,5 +1,6 @@
 plugins {
     id("com.android.application")
+    id("kotlin-parcelize")
     kotlin("android")
 }
 
@@ -52,16 +53,20 @@ android {
 dependencies {
 
     implementation(Deps.androidXcore)
+    implementation(Deps.appCompat)
     //compose
     implementation(Deps.composeUi)
     implementation(Deps.composeMaterial)
     implementation(Deps.composeMaterialExtended)
     implementation(Deps.composeTooling)
+    implementation(Deps.activityCompose)
     //lifecycle
     implementation(Deps.lifecycleRuntime)
-    implementation(Deps.composeActivity)
     //nav
     implementation(Deps.composeNav)
+    implementation(Deps.appyxNav)
+
+    implementation(Deps.meterial)
 
     testImplementation(Deps.junit)
     androidTestImplementation(Deps.androidXTestExt)

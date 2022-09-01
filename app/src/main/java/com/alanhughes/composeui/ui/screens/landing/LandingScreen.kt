@@ -16,19 +16,31 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.alanhughes.composeui.navigation.Screen
+import com.alanhughes.composeui.navigation.RootNode
+import com.bumble.appyx.core.modality.BuildContext
+import com.bumble.appyx.core.node.Node
+import com.bumble.appyx.navmodel.backstack.BackStack
+import com.bumble.appyx.navmodel.backstack.operation.push
 
 data class ScreenRoute(
     val title: String,
-    val screen: Screen,
+    val route: RootNode.Routing,
 )
 
 val destinations = listOf(
-    ScreenRoute(title = "Canvas", screen = Screen.CanvasScreen)
+    ScreenRoute(title = "Canvas", route = RootNode.Routing.Canvas)
 )
 
+class LandingNode(buildContext: BuildContext, private val backStack: BackStack<RootNode.Routing>) :
+    Node(buildContext) {
+    @Composable
+    override fun View(modifier: Modifier) {
+        LandingScreen(navigate = backStack::push)
+    }
+}
+
 @Composable
-fun LandingScreen(navigate: (String) -> Unit) {
+fun LandingScreen(navigate: (RootNode.Routing) -> Unit) {
     Column(verticalArrangement = Arrangement.spacedBy(10.dp)) {
         Text(
             modifier = Modifier
@@ -46,7 +58,7 @@ fun LandingScreen(navigate: (String) -> Unit) {
                         .fillMaxWidth()
                         .padding(vertical = 5.dp)
                         .clickable {
-                            navigate(destination.screen.route)
+                            navigate(destination.route)
                         },
                     horizontalArrangement = Arrangement.SpaceBetween,
                     verticalAlignment = Alignment.CenterVertically

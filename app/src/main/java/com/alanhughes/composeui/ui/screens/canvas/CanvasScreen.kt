@@ -12,11 +12,20 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.alanhughes.composeui.ui.components.canvas.Toggle
 import com.alanhughes.composeui.ui.theme.ComposeUITheme
+import com.bumble.appyx.core.modality.BuildContext
+import com.bumble.appyx.core.node.Node
+
+class CanvasNode(buildContext: BuildContext) : Node(buildContext) {
+    @Composable
+    override fun View(modifier: Modifier) {
+        CanvasScreen(modifier)
+    }
+}
 
 @Composable
-fun CanvasScreen() {
+fun CanvasScreen(modifier: Modifier = Modifier) {
     Column(
-        modifier = Modifier.fillMaxSize(),
+        modifier = modifier.fillMaxSize(),
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.spacedBy(20.dp)
     ) {
@@ -40,3 +49,5 @@ fun CanvasScreen_Preview() {
         CanvasScreen()
     }
 }
+
+
